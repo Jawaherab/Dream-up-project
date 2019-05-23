@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dreams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Location</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dreams.each do |dream| %>
+      <tr>
+        <td><%= dream.date %></td>
+        <td><%= dream.location %></td>
+        <td><%= dream.user %></td>
+        <td><%= link_to 'Show', dream %></td>
+        <td><%= link_to 'Edit', edit_dream_path(dream) %></td>
+        <td><%= link_to 'Destroy', dream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dream', new_dream_path %>
