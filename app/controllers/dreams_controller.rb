@@ -4,7 +4,7 @@ class DreamsController < ApplicationController
   # GET /dreams
   # GET /dreams.json
   def index
-    @dreams = Dream.all
+    @dreams = current_user.dreams
   end
 
   # GET /dreams/1
@@ -14,7 +14,7 @@ class DreamsController < ApplicationController
 
   # GET /dreams/new
   def new
-    @dream = Dream.new
+    @dream = current_user.dreams.new
   end
 
   # GET /dreams/1/edit
@@ -24,7 +24,7 @@ class DreamsController < ApplicationController
   # POST /dreams
   # POST /dreams.json
   def create
-    @dream = Dream.new(dream_params)
+    @dream = current_user.dreams.new(dream_params)
 
     respond_to do |format|
       if @dream.save
@@ -64,11 +64,11 @@ class DreamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dream
-      @dream = Dream.find(params[:id])
+      @dream = current_user.dreams.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dream_params
-      params.require(:dream).permit(:date, :location, :user_id)
+      params.require(:dream).permit(:date, :location)
     end
 end
