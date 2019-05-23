@@ -29,6 +29,15 @@ gem 'jbuilder', '~> 2.5'
 #getting devise started
 gem 'devise'
 
+# jquery library
+# https://github.com/rails/jquery-rails
+gem 'jquery-rails'
+
+# bootstrap library
+# https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap', '~> 4.3.1'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
